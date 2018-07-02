@@ -16,6 +16,23 @@ const winningCombinations = [
   ]
 
   handleClick = function(event) {
+    var cell = event.target;
+  
+    cell.innerHTML = currentPlayer;
+  
+    if(currentPlayer === "X" ) {
+      playerSelections = playerXSelections;
+      nextPlayer = "O";
+    } else {
+      playerSelections = playerOSelections;
+      nextPlayer = "X";
+    }
+  
+    playerSelections.push(parseInt(cell.id));
+  
+    // Swap players
+    currentPlayer = nextPlayer;
+
     var cell = event.target
     console.log(cell.id);
   }
